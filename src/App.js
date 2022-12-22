@@ -1,24 +1,175 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Menu from "./components/Menu/Menu";
+import Info from "./components/Info/Info";
+import Plan from "./components/Plan/Plan";
+import Addons from "./components/Addons/Addons";
+import Summary from "./components/Summary/Summary";
+import ThankYou from "./components/ThankYou";
+import "./App.css";
 
 function App() {
+  const [isValidated, setIsValidated] = useState({
+    name: true,
+    email: true,
+    tel: true,
+  });
+
+  const [step, setStep] = useState(1);
+
+  const [billing, setBilling] = useState(true);
+
+  const [selection, setSelection] = useState(0);
+
+  const [info, setInfo] = useState({
+    name: "",
+    email: "",
+    tel: "",
+  });
+
+  const [plans, setPlans] = useState([
+    {
+      name: "Arcade",
+      price: 9,
+    },
+    {
+      name: "Advanced",
+      price: 12,
+    },
+    {
+      name: "Pro",
+      price: 15,
+    },
+  ]);
+
+  const [addons, setAddons] = useState([
+    {
+      name: "Online service",
+      descr: "Access to multiplayer games",
+      price: 1,
+      selected: true,
+    },
+    {
+      name: "Larger storage",
+      descr: "Extra 1TB of cloud save",
+      price: 2,
+      selected: true,
+    },
+    {
+      name: "Customizable Profile",
+      descr: "Custom theme on your profile",
+      price: 2,
+      selected: false,
+    },
+  ]);
+
+  const validation = ({ name, email, tel }) => {
+    if (!name) {
+      name = false;
+    }
+    if (!email.includes("@")) {
+      email = false;
+    }
+    if (!tel) {
+      tel = false;
+    }
+    return { name, email, tel };
+  };
+
+  const nextStep = () => {
+    setStep(step + 1);
+  };
+
+  const prevStep = () => {
+    setStep(step - 1);
+  };
+
+  const checkValidationHandler = (event) => {
+    event.preventDefault();
+    const validationResult = validation(info);
+    setIsValidated(validationResult);
+    if (!Object.values(validationResult).includes(false)) {
+      nextStep();
+    }
+  };
+
+  const billingChangeHandler = () => {
+    setBilling(!billing);
+    if (billing) {
+      setPlans(
+        plans.map((plan) => ({
+          ...plan,
+          price: plan.price * 10,
+        }))
+      );
+      setAddons(
+        addons.map((addon) => ({
+          ...addon,
+          price: addon.price * 10,
+        }))
+      );
+      return;
+    }
+    setPlans(
+      plans.map((plan) => ({
+        ...plan,
+        price: plan.price / 10,
+      }))
+    );
+    setAddons(
+      addons.map((addon) => ({
+        ...addon,
+        price: addon.price / 10,
+      }))
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      <div className="container">
+        <Menu step={step} />
+        {step === 1 ? (
+          <Info
+            info={info}
+            setInfo={setInfo}
+            isValidated={isValidated}
+            checkValidation={checkValidationHandler}
+          />
+        ) : step === 2 ? (
+          <Plan
+            nextStep={nextStep}
+            prevStep={prevStep}
+            billing={billing}
+            setBilling={setBilling}
+            selection={selection}
+            setSelection={setSelection}
+            plans={plans}
+            billingChange={billingChangeHandler}
+          />
+        ) : step === 3 ? (
+          <Addons
+            addons={addons}
+            setAddons={setAddons}
+            nextStep={nextStep}
+            prevStep={prevStep}
+            billing={billing}
+          />
+        ) : step === 4 ? (
+          <Summary
+            plans={plans}
+            billing={billing}
+            selection={selection}
+            addons={addons}
+            prevStep={prevStep}
+            nextStep={nextStep}
+            billingChange={billingChangeHandler}
+            setStep={setStep}
+          />
+        ) : (
+          <ThankYou />
+        )}
+      </div>
+      <div className="mobileNavigation"></div>
+    </main>
   );
 }
 

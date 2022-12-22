@@ -1,0 +1,96 @@
+.container {
+  position: relative;
+  text-align: left;
+  margin: 0 auto;
+  width: 450px;
+}
+
+.container label {
+  position: relative;
+  display: block;
+  font-size: 15px;
+}
+
+.container ::placeholder {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cool-gray);
+}
+
+.container input {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--marine-blue);
+  margin: 7px 0 22px;
+  border-radius: 7px;
+  border: 1px solid var(--light-gray);
+  height: 45px;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.container input:hover {
+  border-color: var(--violet);
+  cursor: pointer;
+}
+.container input:focus {
+  outline: none !important;
+}
+
+.container .invalid[name="name"],
+.container .invalid[name="email"],
+.container .invalid[name="tel"] {
+  border-color: var(--strawberry-red);
+}
+
+.container form {
+  color: var(--marine-blue);
+}
+
+.container button {
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+}
+
+.required {
+  position: absolute;
+  display: block;
+  right: 3px;
+  top: 0;
+  color: var(--strawberry-red);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    position: static;
+    width: 100%;
+  }
+  .btnWrapper {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    padding: 0 40px;
+    width: 100%;
+    text-align: right;
+  }
+  .container button {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container label {
+    font-size: 12px;
+  }
+
+  .container input {
+    margin: 3px 0 17px;
+    height: 39px;
+  }
+
+  .btnWrapper {
+    padding: 0 15px;
+  }
+}

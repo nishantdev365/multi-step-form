@@ -1,0 +1,185 @@
+.container {
+  position: relative;
+  margin: 0 auto;
+  text-align: left;
+  width: 450px;
+}
+
+.wrapper {
+  background-color: var(--alabaster);
+  border-radius: 8px;
+  /* min-height: 180px; */
+  width: 100%;
+  padding: 25px;
+}
+
+.planWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading,
+.price {
+  color: var(--marine-blue);
+  font-weight: 500;
+}
+
+.price {
+  font-weight: 700;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  color: var(--cool-gray);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  margin-top: 7px;
+}
+
+.btn:hover {
+  color: var(--light-violet);
+}
+
+.divider {
+  background-color: var(--light-gray);
+  height: 0.5px;
+  width: 100%;
+  margin-top: 22px;
+}
+
+.addonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.addonName {
+  color: var(--cool-gray);
+  margin-top: 22px;
+}
+
+.addonPrice {
+  color: var(--marine-blue);
+  margin-top: 22px;
+}
+
+.totalWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 25px 0;
+}
+
+.totalName {
+  color: var(--cool-gray);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.totalPrice {
+  color: var(--purpish-blue);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.navigation {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  bottom: 15px;
+  right: 0;
+  width: 100%;
+}
+
+.prevBtn,
+.nextBtn {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  color: var(--cool-gray);
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+.prevBtn:focus,
+.nextBtn:focus {
+  outline: none !important;
+}
+
+.prevBtn:hover {
+  color: var(--marine-blue);
+}
+
+.nextBtn {
+  background-color: var(--purpish-blue);
+  border-radius: 10px;
+  color: #fff;
+  height: 48px;
+  width: 122px;
+}
+
+.nextBtn:hover {
+  background-color: var(--light-violet);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    position: static;
+    width: 100%;
+  }
+
+  .navigation {
+    bottom: 15px;
+    left: 0;
+    padding: 0 40px;
+    width: 100%;
+    text-align: right;
+  }
+
+  .nextBtn {
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .wrapper {
+    padding: 17px;
+  }
+
+  .heading {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .divider {
+    margin-top: 12px;
+  }
+
+  .addonName,
+  .addonPrice {
+    margin-top: 15px;
+  }
+
+  .totalWrapper{
+    margin: 25px 15px 0;
+  }
+
+  .totalPrice{
+    font-size: 17px;
+  }
+
+  .navigation {
+    padding: 0 15px;
+  }
+}

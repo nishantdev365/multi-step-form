@@ -1,0 +1,26 @@
+.btn {
+  background-color: var(--marine-blue);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  color: #fff;
+  cursor: pointer;
+  height: 48px;
+  width: 122px;
+}
+
+.btn:focus {
+  outline: none !important;
+}
+.btn:hover {
+  background-color: hsl(213, 71%, 32%);
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+  }
+}

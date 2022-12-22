@@ -1,0 +1,55 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--alabaster);
+  border-radius: 5px;
+  height: 45px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.monthly,
+.yearly {
+  color: var(--cool-gray);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.switch {
+  cursor: pointer;
+  background-color: var(--marine-blue);
+  border-radius: 15px 15px;
+  width: 40px;
+  height: 20px;
+  margin: 0 23px;
+}
+
+.round {
+  background-color: #fff;
+  border-radius: 100%;
+  width: 12px;
+  height: 12px;
+  margin: 4px;
+  transition: 0.3s all;
+}
+
+.active {
+  margin-left: 23px;
+}
+
+.blue {
+  color: var(--marine-blue);
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin-top: 19px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .wrapper {
+    margin-top: 12px;
+  }
+}
