@@ -12,7 +12,7 @@ const ThankYou = () => {
         our platform. If you ever need support, please feel free to mail us at
         "
       />
-      <a href="mailto:support@loremgaming.com">support@loremgaming.com</a>
+      <a href="mailto:support@loremgaming.com">nishantofficial322@gmail.com</a>
     </div>
   );
 };
