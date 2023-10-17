@@ -3,6 +3,7 @@
   text-align: center;
   background: var(--magnolia);
   padding: 28px 0;
+  height: 100vh;
 }
 
 .container {
